@@ -2,49 +2,42 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { faBars, faSearch, faRefresh } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faSearch,
+  faRefresh,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Nav from "../components/Nav";
+import HeaderInput from "../components/home/HeaderInput";
+import HeaderAlert from "../components/home/HeaderAlert";
+import HomeInput from "../components/home/HomeInput";
 
 export default function Home() {
-  const [navList, setNavList] = useState([
-    "전적검색",
-    "e스포츠 일정",
-    "레벨업지지",
-    "게임코치온라인",
-    "GCL",
-  ]);
-  const [activeMenu, setActiveMenu] = useState("전적검색");
   const onSubmit = (e) => {
     e.preventDefault();
   };
   return (
     <div>
       <Nav />
-      <div className='bg-gray-700 h-14 border-t border-gray-600 flex items-center px-4 w-full'>
-        <div className='text-lg mr-4'>
-          <FontAwesomeIcon icon={faBars} className='text-white' />
-        </div>
-        <form
-          onSubmit={onSubmit}
-          className='overflow-hidden rounded-lg flex w-full justify-between bg-gray-800'>
-          <div className='flex items-center gap-10 text-white text-xs self-center bg-gray-900 p-3'>
-            <div>KR</div>
-            <FontAwesomeIcon icon={faRefresh} size='xs' className='pt-0.5' />
-          </div>
-          <input
-            className='text-xs bg-gray-800 p-3'
-            placeholder='소환사 검색'
-          />
-          <button>
-            <FontAwesomeIcon
-              icon={faSearch}
-              size='xs'
-              className='text-gray-500 pr-4 pt-0.5'
-            />
-          </button>
-        </form>
+      <HeaderInput />
+      <HeaderAlert />
+      <HomeInput />
+      <div className='bg-black w-10/12 h-56 mx-auto my-5'>Ad</div>
+      <div className='px-2 flex flex-col gap-2'>
+        <section className='bg-neutral-200 w-full h-40'>랭킹</section>
+        <section className='bg-neutral-200 w-full h-40'>인기 유저</section>
+        <section className='bg-neutral-200 w-full h-40'>공지사항</section>
+        <section className='bg-neutral-200 w-full h-40'>이벤트</section>
       </div>
+      <style jsx>{`
+        .bgImg {
+          background: url("https://cdn-lostark.game.onstove.com/2022/event/220625_update_YBETKCt1dE/images/pc/illiakan.220824.apXEczPi/@bg_event4.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      `}</style>
     </div>
   );
 }

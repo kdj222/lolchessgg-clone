@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/index.js", "./components/Nav.js"],
+  content: [
+    "./pages/index.js",
+    "./components/Nav.js",
+    "./components/home/HeaderInput.js",
+    "./components/home/HeaderAlert.js",
+    "./components/home/HomeInput.js",
+  ],
   theme: {
     screens: {
       sm: "0px",
